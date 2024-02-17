@@ -6,15 +6,16 @@ import linkedInLogo from '@/public/linked_image.png'
 import eyeLogo from '@/public/Icon.png'
 import mailLogo from '@/public/mail.png'
 import frameLogo from '@/public/Frame.png'
+import Link from 'next/link'
 import LoginClientSlider from '../components/LoginClientSlider'
 
 export default function loginPage() {
   return (
-    <main className='w-full h-[700px]  flex items-center justify-center'>
-        <section className='lg:w-[50%] w-full flex flex-col items-center pb-10 justify-center pt-[6rem] h-full gap-4 bg-white'>
-            <div className=' flex flex-col w-full items-center justify-center gap-4'>
+    <main className='w-full h-[760px]  flex items-center justify-center'>
+        <section className='lg:w-[60%] w-full flex flex-col items-center pb-16 justify-center pt-[6rem] h-full gap-4 bg-white'>
+            <div className=' flex flex-col w-full  items-center justify-center gap-4'>
 
-                <div className='flex flex-col w-full items-center justify-center '>
+                <div className='flex flex-col items-start justify-center'> 
                     <div className=' w-[250px]  md:w-[312px] h-[35px]'>
                         <Image
                             src={loginLogo}
@@ -23,13 +24,13 @@ export default function loginPage() {
                             height={35}
                         />
                     </div>
-                    <div className='flex flex-col mt-4 w-full md:mt-6 items-center justify-center gap-2'>
-                        <h2 className='lg:text-[40px] lg:leading-[50px] md:leading-[40px] leading-[30px] text-[25px] md:text-[30px] text-[#1A1A1A] mb-2 font-semibold'>Log in to your Account</h2>
-                        <p className=' text-[#1A1A1A]/50'>Welcome back! Select method to log in:</p>
+                    <div className='flex flex-col mt-4  md:mt-6 items-start w-full justify-center gap-2'>
+                        <h2 className='md:text-[40px] md:leading-[50px] sm:leading-[40px] leading-[30px] text-[25px] sm:text-[30px] text-[#1A1A1A]  font-semibold'>Log in to your Account</h2>
+                        <p className=' text-[#1A1A1A]/50 font-medium'>Welcome back! Select method to log in:</p>
                     </div>
                 </div>
-                <div className='flex flex-col items-start justify-start mt-5 max gap-5'>
-                    <div className=' flex flex-col md:flex-row gap-5 items-start  justify-center w-full'>
+                <div className='flex flex-col w-[80%] lg:w-[60%] items-center justify-start mt-5 max gap-5'>
+                    <div className=' flex flex-col md:flex-row lg:gap-3 gap-5 items-start  justify-center w-full'>
                         <div className='flex gap-4 whitespace-nowrap w-full cursor-pointer hover:bg-slate-400/30 transition-colors duration-100 p-2 rounded-lg border items-center justify-center'>
                             <Image 
                                 src={googleLogo}
@@ -50,9 +51,9 @@ export default function loginPage() {
                         </div>
                     </div>
                     <div className=" flex items-center mt-6 w-full lg:w-[430px]">
-                        <span className=' flex-1 border-t border-c/50 mx-2'></span>
+                        <span className=' flex-1 border-t border-[#111111]/20 mx-2'></span>
                         <span className='whitespace- text-[#1A1A1A]/50 '>Or continue with email</span>
-                        <span className=' flex-1 border-t border-[#1A1A1A]/50 mx-2'></span>
+                        <span className=' flex-1 border-t border-[#111111]/20 mx-2'></span>
                     </div>
                     <form className='flex flex-col items-start w-full justify-center gap-4' >
                         <div className='flex flex-col gap-2 w-full items-start justify-center'>
@@ -101,11 +102,12 @@ export default function loginPage() {
                                         type="checkbox"
                                         id='remember'
                                      />
-                                     <label htmlFor="remember" className=' text-[14px] text-[#111111]/50 '>Remember me</label>
+                                     <label htmlFor="remember" className=' font-medium text-[15px] text-[#111111]/50 '>Remember me</label>
                                 </div>
-                                <p className=' text-[#008080] leading-[24px] '>Forgot Password?</p>
+                                <p className=' text-[#008080] cursor-pointer leading-[24px] hover:underline '>Forgot Password?</p>
                             </div>
                             <button className=' bg-[#008080] mt-5 text-white rounded-md p-3 w-full'>Log In</button>
+                            <Link href='/account/signup' className="font-medium mx-auto mt-6 text-center text-[#6E6E6E]">Don't have account? <span className='text-[#008080] hover:underline'>Get Started</span></Link>
                         </div>
                     </form>
                 </div>

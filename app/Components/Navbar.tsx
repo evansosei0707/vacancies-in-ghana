@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { employersList, helperCenterList, jobSeekersList, serviceLinks, serviceList } from '../lib/helper';
-import logo from '@/public/vig-logo.png'
+import logo from '@/public/Frame 22.png'
 import Link from 'next/link';
 import { FaRegNewspaper } from "react-icons/fa6";
 import { Sling as Hamburger } from 'hamburger-react'
@@ -26,21 +26,21 @@ export default function Navbar() {
 
 
   return (
-    <header className='w-full flex justify-between items-center relative h-[70px] px-8 pl-0 bg-white shadow-sm'>
+    <header className='w-full flex justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm'>
       <div className='flex items-center justify-center gap-5'>
-        <Link href={'/'} className=' w-[100px] h-[55px]'>
+        <Link href={'/'} className=' w-[320px] h-[65px] '>
             <Image 
                 src={logo}
                 alt='vig-logo'
-                width={100}
-                height={55}
+                width={320}
+                height={65}
                 className='w-full h-full object-contain'
             />
         </Link>
-        <nav className='hidden lg:flex items-center text-lg justify-center h-full '>
-        <NavigationMenu  className=' mt-4'>
-      <NavigationMenuList>
-      <NavigationMenuItem className='text-lg'>
+        <nav className='hidden lg:flex items-start text-lg -mt-3 justify-center h-full'>
+        <NavigationMenu  className=' pt-4 '>
+      <NavigationMenuList >
+      <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <span className='text-lg leading-5 text-[#4A4A48]'>Job Seekers</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
@@ -56,8 +56,8 @@ export default function Navbar() {
           </NavigationMenuContent>
         </NavigationMenuItem>
        
-        <NavigationMenuItem className='text-lg'>
-          <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Our Service</span></NavigationMenuTrigger>
+        <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
+          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Our Service</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {serviceList.map((component: serviceListType, idx: any) => (
@@ -72,7 +72,7 @@ export default function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className='hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <p className='text-lg'>Career</p></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -102,7 +102,7 @@ export default function Navbar() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         
-        <NavigationMenuItem className='text-lg'>
+        <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Employers</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
@@ -139,14 +139,14 @@ export default function Navbar() {
         <div className='hidden lg:flex items-center justify-center gap-3'>
             <Link href={'/account/login'} className=' border-none outline-none px-2 border-r border-2 bg-transparent text-black whitespace-nowrap'>Log In</Link>
             <Link href={'/account/register'} className='border-none outline-none  bg-transparent text-black px-2'>Register</Link>
-            <Link  href={'/account/employer/jobs/create'} className=" rounded-lg  bg-[#008080] text-white px-5 py-2">Post a Job</Link>
+            <Link  href={'/account/employer/jobs/create'} className=" rounded-lg hidden min-[1234px]:flex bg-[#008080] text-white px-5 py-2">Post a Job</Link>
         </div>
-        <div ref={ref} className="min-[1174px]:hidden  ">
+        <div ref={ref} className="lg:hidden  ">
           <Hamburger toggled={isOpen} size={30} color="#008080" toggle={setOpen} /> 
           <div
           className={`${
             isOpen ? 'right-0' : '-right-full'
-          } transition-all transform  duration-300 ease-in w-[85%]   overflow-x-hidden border-black h-[80vh] absolute top-[4.3rem] bg-black`}
+          } transition-all transform  duration-300 ease-in w-[85%]   overflow-x-hidden border-black h-[100vh] fixed top-[4.3rem] bg-black`}
         >
           {/* ... (your menu content) */}
         </div>
@@ -166,7 +166,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-[#008080]/15 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
             className
           )}
           {...props}
