@@ -107,7 +107,7 @@ export default function loginPage() {
                                 <p className=' text-[#008080] cursor-pointer leading-[24px] hover:underline '>Forgot Password?</p>
                             </div>
                             <button className=' bg-[#008080] mt-5 text-white rounded-md p-3 w-full'>Log In</button>
-                            <Link href='/account/signup' className="font-medium mx-auto mt-6 text-center text-[#6E6E6E]">Don't have account? <span className='text-[#008080] hover:underline'>Get Started</span></Link>
+                            <Link href='/account/signup' className="font-medium mx-auto mt-6 text-center text-[#6E6E6E]">Don&apos;t have account? <span className='text-[#008080] hover:underline'>Get Started</span></Link>
                         </div>
                     </form>
                 </div>
