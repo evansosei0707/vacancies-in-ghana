@@ -3,16 +3,13 @@ import React from 'react'
 import loginLogo from '@/public/Frame 22.png'
 import googleLogo from '@/public/google_image.png'
 import linkedInLogo from '@/public/linked_image.png'
-import eyeLogo from '@/public/Icon.png'
-import mailLogo from '@/public/mail.png'
-import frameLogo from '@/public/Frame.png'
-import Link from 'next/link'
 import LoginClientSlider from '../components/LoginClientSlider'
+import LoginForm from '../components/LoginForm'
 
 export default function loginPage() {
   return (
-    <main className='w-full h-[760px]  flex items-center justify-center'>
-        <section className='lg:w-[60%] w-full flex flex-col items-center pb-16 justify-center pt-[6rem] h-full gap-4 bg-white'>
+    <main className='w-full min-h-[800px] h-[800px]  flex items-center justify-center'>
+        <section className='lg:w-[60%] w-full flex flex-col items-center pb-16 justify-center pt-[7rem] h-full gap-4 bg-white'>
             <div className=' flex flex-col w-full  items-center justify-center gap-4'>
 
                 <div className='flex flex-col items-start justify-center'> 
@@ -46,6 +43,7 @@ export default function loginPage() {
                                 width={24}
                                 height={24}
                                 alt='linkedIn logo'
+                                className='shrink-0'
                             />
                             <p className=' font-medium text-[#1A1A1A]'>Sign in with LinkedIn</p>
                         </div>
@@ -55,61 +53,7 @@ export default function loginPage() {
                         <span className='whitespace- text-[#1A1A1A]/50 '>Or continue with email</span>
                         <span className=' flex-1 border-t border-[#111111]/20 mx-2'></span>
                     </div>
-                    <form className='flex flex-col items-start w-full justify-center gap-4' >
-                        <div className='flex flex-col gap-2 w-full items-start justify-center'>
-                            <label htmlFor="email" className=' text-text-[#1A1A1A] font-medium'>Email</label>
-                            <div className='flex px-3 items-center w-full justify-center border rounded-md '>
-                                <Image
-                                    src={mailLogo}
-                                    width={17}
-                                    height={13}
-                                    alt='mail-icon'
-                                />
-                                <input 
-                                    type="email"
-                                    id='email'
-                                    className='flex-1 p-3 w-full outline-none text-[#1A1A1A]/50'
-                                    placeholder='eg.support@gmail.com'
-                                />
-                            </div>
-                        </div>
-                        <div className='flex flex-col gap-2 items-start w-full justify-center'>
-                            <label htmlFor="password" className=' text-text-[#1A1A1A] font-medium'>Password</label>
-                            <div className='flex items-center w-full justify-center border rounded-md p-3'>
-                                <Image
-                                    src={frameLogo}
-                                    width={20}
-                                    height={20}
-                                    className=''
-                                    alt='mail-icon'
-                                />
-                                <input 
-                                    type="password"
-                                    id='password'
-                                    className='text-[#1A1A1A]/50 flex-1 pl-3 font-thin w-full  outline-none'
-                                    placeholder='************'
-                                />
-                                 <Image
-                                    src={eyeLogo}
-                                    width={20}
-                                    height={20}
-                                    alt='mail-icon'
-                                />
-                            </div>
-                            <div className='flex items-center lg:px-2 px-0 justify-between w-full'>
-                                <div className=' flex items-center mt-2 justify-center  gap-4'>
-                                    <input 
-                                        type="checkbox"
-                                        id='remember'
-                                     />
-                                     <label htmlFor="remember" className=' font-medium text-[15px] text-[#111111]/50 '>Remember me</label>
-                                </div>
-                                <p className=' text-[#008080] cursor-pointer leading-[24px] hover:underline '>Forgot Password?</p>
-                            </div>
-                            <button className=' bg-[#008080] mt-5 text-white rounded-md p-3 w-full'>Log In</button>
-                            <Link href='/account/signup' className="font-medium mx-auto mt-6 text-center text-[#6E6E6E]">Don&apos;t have account? <span className='text-[#008080] hover:underline'>Get Started</span></Link>
-                        </div>
-                    </form>
+                    <LoginForm />
                 </div>
             </div>
         </section>

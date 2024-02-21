@@ -6,6 +6,8 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
+    --blackColor: #1A1A1A;
+    --maincolor: #00808080;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -69,6 +71,11 @@
   opacity: 0.65; /* Adjust the opacity as needed (0.5 for 50%) */
 }
 
+input[type="checkbox"]:enabled:checked {
+  background-color: #008080 ;
+  color: white;
+}
+
 
  
 @layer base {
@@ -78,4 +85,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+
+input[type="checkbox"] {
+  border-radius: 2px;
+  width: 15px;
+  height: 15px;
+  accent-color: #008080;
 }

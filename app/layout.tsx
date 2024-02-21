@@ -25,6 +25,11 @@ const myFont = localFont({
       weight: '600',
       style: 'normal',
     },
+    {
+      path: './Founders_Grotesk_Font_Family_(Fontmirror)/Test Founders Grotesk Light 300.otf',
+      weight: '300',
+      style: 'normal',
+    },
   ],
 });
 
@@ -44,6 +49,6 @@ export default function RootLayout({
         <Navbar />
         {children}
       </body>
-    </html>
-  );
+    </html>  
+  ); 
 }

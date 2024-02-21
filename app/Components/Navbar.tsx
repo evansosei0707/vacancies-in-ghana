@@ -1,13 +1,15 @@
-"use client"
+"use client";
 
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { employersList, helperCenterList, jobSeekersList, serviceLinks, serviceList } from '../lib/helper';
 import logo from '@/public/Frame 22.png'
+import mobileLogo from "@/public/Vector 2.png"
 import Link from 'next/link';
 import { FaRegNewspaper } from "react-icons/fa6";
 import { Sling as Hamburger } from 'hamburger-react'
 import { cn } from "@/lib/utils"
+import { usePathname } from 'next/navigation';
 import { MdKeyboardArrowUp } from "react-icons/md";
 import {
     NavigationMenu,
@@ -23,12 +25,14 @@ import {
 export default function Navbar() {
   const [isOpen, setOpen] = useState(false);
   const ref = useRef(null);
+  const pathName = usePathname();
+
 
 
   return (
-    <header className='w-full flex justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm'>
+    <header className={ ` ${pathName === '/' ? 'flex' : 'hidden'}  w-full justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm`}>
       <div className='flex items-center justify-center gap-5'>
-        <Link href={'/'} className=' w-[320px] h-[65px] '>
+        <Link href={'/'} className=' w-[320px] hidden md:block h-[65px] '>
             <Image 
                 src={logo}
                 alt='vig-logo'
@@ -37,8 +41,17 @@ export default function Navbar() {
                 className='w-full h-full object-contain'
             />
         </Link>
+        <Link href={'/'} className=' w-[78px] md:hidden h-[60px] '>
+            <Image 
+                src={mobileLogo}
+                alt='vig-logo'
+                width={78}
+                height={60}
+                className='w-full h-full object-contain'
+            />
+        </Link>
         <nav className='hidden lg:flex items-start text-lg -mt-3 justify-center h-full'>
-        <NavigationMenu  className=' pt-4 '>
+        <NavigationMenu  className=' mt-9 '>
       <NavigationMenuList >
       <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <span className='text-lg leading-5 text-[#4A4A48]'>Job Seekers</span></NavigationMenuTrigger>
@@ -138,7 +151,7 @@ export default function Navbar() {
       </div>
         <div className='hidden lg:flex items-center justify-center gap-3'>
             <Link href={'/account/login'} className=' border-none outline-none px-2 border-r border-2 bg-transparent text-black whitespace-nowrap'>Log In</Link>
-            <Link href={'/account/register'} className='border-none outline-none  bg-transparent text-black px-2'>Register</Link>
+            <Link href={'/account/'} className='border-none outline-none  bg-transparent text-black px-2'>Register</Link>
             <Link  href={'/account/employer/jobs/create'} className=" rounded-lg hidden min-[1234px]:flex bg-[#008080] text-white px-5 py-2">Post a Job</Link>
         </div>
         <div ref={ref} className="lg:hidden  ">
@@ -146,7 +159,7 @@ export default function Navbar() {
           <div
           className={`${
             isOpen ? 'right-0' : '-right-full'
-          } transition-all transform  duration-300 ease-in w-[85%]   overflow-x-hidden border-black h-[100vh] fixed top-[4.3rem] bg-black`}
+          } transition-all transform  duration-300 ease-in w-[85%]   overflow-x-hidden  h-[100vh] fixed top-[5rem] bg-white border-[#008080]`}
         >
           {/* ... (your menu content) */}
         </div>

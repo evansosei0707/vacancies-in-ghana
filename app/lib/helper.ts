@@ -103,3 +103,100 @@ export const serviceLinks: { title: string; href: string; description: string }[
         title: 'Contact Us',
     },
    ]
+
+   export const regionInGhana = [
+    "Ashanti",
+    "Brong Ahafo",
+    "Central",
+    "Eastern",
+    "Greater Accra",
+    "Northern",
+    "Upper East",
+    "Upper West",
+    "Volta",
+    "Western ",
+    "Savannah",
+    "Bono East",
+    "Oti",
+    "Ahafo",
+    "Western North",
+    "North East",
+   ];
+
+   export const jobQualifications = [
+    "Bachelors Degree",
+    "Masters Degree",
+    "HND",
+    "Diploma",
+    "Professional Certfication",
+    "ICA",
+    "PhD",
+    "ACCA",
+    "Mphil",
+    "JHS Graduate",
+
+   ]
+
+   export const yearsOfExperience = [
+    "No working years of experience",
+    "1 - 2 years",
+    "2 - 3 years",
+    "3 - 4 years",
+    "4 - 5 years",
+    "5+ years",
+    "6 - 7 years",
+    "7 -8 years",
+    "9 - 10 years",
+    "10+ years",
+    "15+ years",
+    "20+ years",
+    "30+ years",
+   ]
+
+   export const currentJobFunction = [
+    "Accounting,Auditing, Finance",
+    "Adming & Office",
+    "Building & Architechture",
+    "Community & Social Services",
+    "Consulting & Strategy",
+    "Creative & Design",
+    "Customer Service & Support",
+    "Driver & Transport Services",
+   ]
+
+   export const desiredJobFunction = [
+    {
+      value: "Accounting,Auditing, Finance",
+      label: "Accounting,Auditing, Finance",
+    },
+    {
+      value:"Adming & Office",
+      label: "Adming & Office",
+    },
+    {
+      value: "Building & Architechture",
+      label: "Building & Architechture",
+    },
+    {
+      value: "Community & Social Services",
+      label: "Community & Social Services",
+    },
+    {
+      value: "Consulting & Strategy",
+      label: "Consulting & Strategy",
+    },
+    {
+      value: "Creative & Design",
+      label: "Creative & Design",
+    },
+   ]
+
+   export const availability = [
+    "immediately",
+    "1 week",
+    "2 weeks",
+    "3 weeks",
+    "1 month",
+    "2 months",
+    "More than three months",
+   ]
