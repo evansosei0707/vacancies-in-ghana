@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${myFont.className} text-lg  w-full min-h-[100vh] mx-auto overflow-x-hidden max-w-[2000px]`}>
+      <body className={`${myFont.className} text-lg  w-full min-h-[100vh] mx-auto overflow-x-hidden max-w-[1500px]`}>
         <Navbar />
         {children}
       </body>

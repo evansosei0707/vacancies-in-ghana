@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import { employersList, helperCenterList, jobSeekersList, serviceLinks, serviceList } from '../lib/helper';
-import logo from '@/public/Frame 22.png'
+import logo from '@/public/vig-mainLogo.png'
 import mobileLogo from "@/public/Vector 2.png"
 import Link from 'next/link';
 import { FaRegNewspaper } from "react-icons/fa6";
@@ -30,28 +30,19 @@ export default function Navbar() {
 
 
   return (
-    <header className={ ` ${pathName === '/' ? 'flex' : 'hidden'}  w-full justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm`}>
+    <header className={ ` ${pathName === '/' ? 'flex' : 'hidden'}  w-full lg:px-10 justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm`}>
       <div className='flex items-center justify-center gap-5'>
-        <Link href={'/'} className=' w-[320px] hidden md:block h-[65px] '>
+        <Link href={'/'} className=' w-[48px]  h-[40px] '>
             <Image 
                 src={logo}
                 alt='vig-logo'
-                width={320}
-                height={65}
+                width={48}
+                height={40}
                 className='w-full h-full object-contain'
             />
         </Link>
-        <Link href={'/'} className=' w-[78px] md:hidden h-[60px] '>
-            <Image 
-                src={mobileLogo}
-                alt='vig-logo'
-                width={78}
-                height={60}
-                className='w-full h-full object-contain'
-            />
-        </Link>
-        <nav className='hidden lg:flex items-start text-lg -mt-3 justify-center h-full'>
-        <NavigationMenu  className=' mt-9 '>
+        <nav className='hidden lg:flex items-start text-lg justify-center h-full'>
+        <NavigationMenu  className='  '>
       <NavigationMenuList >
       <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <span className='text-lg leading-5 text-[#4A4A48]'>Job Seekers</span></NavigationMenuTrigger>
@@ -68,24 +59,22 @@ export default function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-       
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Our Service</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Employers</span></NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-              {serviceList.map((component: serviceListType, idx: any) => (
+            <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
+              {employersList.map((item, idx) => (
                 <ListItem
                   key={idx}
-                  title={component.title}
-                  href={component.href}
+                  title={item.title}
+                  href={item.href}
                 >
-                  {component.desc}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem className='hover:bg-[#008080]/30 rounded-lg'>
+         </NavigationMenuItem>
+         <NavigationMenuItem className='hover:bg-[#008080]/30 rounded-lg'>
           <NavigationMenuTrigger> <p className='text-lg'>Career</p></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -114,22 +103,23 @@ export default function Navbar() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Employers</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Our Service</span></NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
-              {employersList.map((item, idx) => (
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {serviceList.map((component: serviceListType, idx: any) => (
                 <ListItem
                   key={idx}
-                  title={item.title}
-                  href={item.href}
+                  title={component.title}
+                  href={component.href}
                 >
+                  {component.desc}
                 </ListItem>
               ))}
             </ul>
           </NavigationMenuContent>
-         </NavigationMenuItem>
+        </NavigationMenuItem>
+       
        {/* <NavigationMenuItem className='text-lg'>
           <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Help Center</span></NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -150,9 +140,9 @@ export default function Navbar() {
         </nav>
       </div>
         <div className='hidden lg:flex items-center justify-center gap-3'>
-            <Link href={'/account/login'} className=' border-none outline-none px-2 border-r border-2 bg-transparent text-black whitespace-nowrap'>Log In</Link>
-            <Link href={'/account/'} className='border-none outline-none  bg-transparent text-black px-2'>Register</Link>
-            <Link  href={'/account/employer/jobs/create'} className=" rounded-lg hidden min-[1234px]:flex bg-[#008080] text-white px-5 py-2">Post a Job</Link>
+            <Link href={'/account/'} className='border-none outline-none  text-[17px] font-medium  bg-transparent text-[#1A1A1A] px-2'>Sign Up</Link>
+            <Link href={'/account/login'} className=' border-none outline-none px-2 border-r border-2 text-[17px] text-[#1A1A1A] font-medium bg-transparent whitespace-nowrap'>Log In</Link>
+            <Link  href={'/account/employer/jobs/create'} className=" rounded-lg hidden min-[1234px]:flex bg-[#008080] text-lg font-medium text-white px-7 py-2">Post a Job</Link>
         </div>
         <div ref={ref} className="lg:hidden  ">
           <Hamburger toggled={isOpen} size={30} color="#008080" toggle={setOpen} /> 
