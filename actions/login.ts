@@ -33,7 +33,8 @@ export const signUpSet2 = async (values: z.infer<typeof RegisterStep2Schema>) =>
     if (!validateFields.success) {
         return {error: "Invalid fiels!"};
     }
-    console.log(values)
+
+    console.log(values);
 
     return { success: "Email sent successfully"};
 }

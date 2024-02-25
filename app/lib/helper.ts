@@ -199,4 +199,90 @@ export const serviceLinks: { title: string; href: string; description: string }[
     "1 month",
     "2 months",
     "More than three months",
+   ];
+
+   export const forJobSeekers = [
+    {
+      label: 'Available Vacancies',
+      link: '/available-Vacancies',
+    },
+    {
+      label: 'How to find work',
+      link: '/how-to-find-work',
+    },
+    {
+      label: 'CV Review',
+      link: '/cv-review',
+    },
+    {
+      label: 'Career consultancy',
+      link: '/career-consultancy',
+    },
+    {
+      label: 'Skill Assessments',
+      link: '/skill-assessments',
+    },
+   ]
+
+   export const forCompanies = [
+    {
+      label: 'How to hire top talents',
+      link: '/how-to-hire-top-talents',
+    },
+    {
+      label: 'Get best match',
+      link: '/get-best-match',
+    },
+    {
+      label: 'Hire an Agency',
+      link: '/hire-an-agency',
+    },
+    {
+      label: 'Business training',
+      link: '/business-training',
+    },
+    {
+      label: 'Skill Assessments',
+      link: '/skill-assessments',
+    },
+   ]
+
+
+   export const resources = [
+    {
+      label: 'Help Center',
+      link: '/help-center',
+    },
+    {
+      label: 'Reviews',
+      link: '/reviews',
+    },
+    {
+      label: 'Success Testimonies',
+      link: '/Success-testimonies',
+    },
+    {
+      label: 'Blog',
+      link: '/blog',
+    },
+   ]
+
+
+   export const vacancies = [
+    {
+      label: 'About Us',
+      link: '/about-us',
+    },
+    {
+      label: 'Careers',
+      link: '/careers',
+    },
+    {
+      label: 'Contact Us',
+      link: '/contact-us',
+    },
+    {
+      label: 'Leadership & Team',
+      link: '/leadership-&-teams',
+    },
    ]

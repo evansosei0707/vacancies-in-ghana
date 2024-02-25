@@ -13,33 +13,36 @@ import { z, ZodError } from 'zod';
 
 
 
-const MAX_FILE_SIZE = 5000000;
+// const MAX_FILE_SIZE = 5000000;
 
-function checkFileType(file: File): boolean {
-    if (file?.name) {
-        const fileType = file.name.split(".").pop();
-        return fileType === "docx" || fileType === "pdf";
-    }
-    return false;
-}
+// function checkFileType(file: File): boolean {
+//     if (file?.name) {
+//         const fileType = file.name.split(".").pop();
+//         return fileType === "docx" || fileType === "pdf";
+//     }
+//     return false;
+// }
 
-const fileSchema = z.object({
-    file: z.any()
-        .refine((file: File | undefined) => !!file, {
-            message: "File is required",
-        })
-        .refine((file: File) => checkFileType(file), {
-            message: "Only .pdf, .docx formats are supported.",
-        }),
-});
+// const fileSchema = z.object({
+//     file: z.any()
+//         .refine((file: File | undefined) => !!file, {
+//             message: "File is required",
+//         })
+//         .refine((file: File) => checkFileType(file), {
+//             message: "Only .pdf, .docx formats are supported.",
+//         }),
+// });
 
 
 
-// const jobSeekerCvSchema = z.custom<File|undefined>()
+// const jobSeekerCvSchema = z.custom<File>()
 // .refine(file => {
-//     !file || file instanceof File && file.name.split(".").pop();
+//     message: 'Image is required'
 // })
 
+const jobSeekerCvSchema = z.custom<File>((file) => file instanceof File, {
+    message: 'CV is required'
+})
 
 export const RegisterStep1Schema = z.object({
     email: z.string().email({
@@ -90,6 +93,14 @@ export const RegisterStep2Schema = z.object({
     availability: z.string().min(1, {
         message: "Select your availability!"
     }),
-    reviewCheckbox: z.boolean()
-    // uploadCv: fileSchema
+    reviewCheckbox: z.boolean(),
+    // uploadCv: jobSeekerCvSchema,
 })
+
+export const jobSearchFilterSchema = z.object({
+    q: z.string().optional(),
+    region: z.string().optional(),
+    job_function: z.string().optional(),
+})
+
+export type jobSearchFilterValues = z.infer< typeof jobSearchFilterSchema>

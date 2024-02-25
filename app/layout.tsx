@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "./Components/Navbar";
 import "./globals.css";
 import localFont from "next/font/local"
+import Footer from "./Components/Footer";
 
 const myFont = localFont({
   src: [
@@ -48,6 +49,7 @@ export default function RootLayout({
       <body className={`${myFont.className} text-lg  w-full min-h-[100vh] mx-auto overflow-x-hidden max-w-[1500px]`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>  
   ); 

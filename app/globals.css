@@ -76,6 +76,15 @@ input[type="checkbox"]:enabled:checked {
   color: white;
 }
 
+.input-check input[type="checkbox"]{
+  border-radius:7px;
+  width: 19px;
+  height: 19px;
+  color: gray;
+  border: gray
+  
+}
+
 
  
 @layer base {

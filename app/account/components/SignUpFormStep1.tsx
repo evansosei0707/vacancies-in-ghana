@@ -16,6 +16,7 @@ import { useForm } from 'react-hook-form';
 import { regionInGhana } from '@/app/lib/helper';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpSet1 } from '@/actions/login';
+import Select from '@/components/ui/select';
 
 
 interface SignUpFormStep1Props {
@@ -226,8 +227,8 @@ useEffect(() => {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='gender' className=' font-medium text-base'>Gender</FormLabel>
                             <FormControl className='w-full'>
-                              <select
-                                className='flex-1 w-full text-[16px] rounded-md p-4 py-3 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                              <Select
+                                className='border py-2 w-full px-4 outline-none rounded-[8px] border-[#D0D5DD]  text-[#1A1A1A]/50'
                                 {...field} defaultValue="">
                                 <option value="" hidden>
                                     Select an option
@@ -238,11 +239,11 @@ useEffect(() => {
                                 <option value="Female" >
                                     Female
                                 </option>
-                                <option value="Other" hidden>
+                                <option value="Other">
                                     Other
                                 </option>
                                   
-                              </select>
+                              </Select>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>
@@ -255,8 +256,8 @@ useEffect(() => {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='gender' className=' font-medium text-base'>Location(Region)</FormLabel>
                             <FormControl className='w-full'>
-                              <select 
-                                className='flex-1 w-full text-[16px] rounded-md p-4 py-3  border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                              <Select 
+                                className='border py-2 w-full px-4 outline-none rounded-[8px] border-[#D0D5DD]  text-[#1A1A1A]/50'
                                 {...field} defaultValue="">
                                 <option value="" hidden>
                                     Select your region
@@ -266,7 +267,7 @@ useEffect(() => {
                                     <option key={idx} value={region}>{region}</option>
                                   ))
                                 }
-                              </select>
+                              </Select>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>

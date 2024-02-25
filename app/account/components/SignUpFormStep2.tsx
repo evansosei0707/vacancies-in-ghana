@@ -43,6 +43,7 @@ export default function SignUpFormStep2({handleNext }: SignUpFormStep2Props) {
       availability: '',
       qualification: '',
       reviewCheckbox: true,
+      // uploadCv: undefined,
     }
 });
 
@@ -200,13 +201,14 @@ const {
                         <FormControl className='w-full'>
                             <input
                                 {...fieldValues}
-                                disabled={isPending}
                                 type='file'
+                                accept=""
                                 placeholder='upload your CV/Resume'
                                 id='uploadCv'
                                 onChange={(e) => {
                                   const file =  e.target.files?.[0]
                                   fieldValues.onChange(file)
+                                  console.log(file)
                                 }}
                                 className='flex-1 w-full text-[16px] rounded-md p-4 py-2 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
                             />
