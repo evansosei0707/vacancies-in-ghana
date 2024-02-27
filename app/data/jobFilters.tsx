@@ -1,60 +1,60 @@
-export const filters = [
-    {
-    "id": 0,
-      label: "type of employment",
-      name: "type_of_employment",
-      filters: [
-        "Full Time",
-        "Part Time",
-        "Internship",
-        "Freelance",
-        "Remote",
-        "Co Founder",
-        "Contract",
-      ],
-    },
-    {
+export const typeOfEmployment = {
+  "id": 0,
+    label: "Job type",
+    name: "job_type",
+    filters: [
+      "Full Time",
+      "Part Time",
+      "Internship",
+      "Contract",
+    ],
+  }
+    
+    export const experienceLevel = {
         "id": 1,
       label: "experience level",
       name: "experience_level",
       filters: [
-        "Senior Level",
-        "Entry Level",
-        "Mid Level",
-        "Student Level",
-        "Directors",
+        "1 - 2 years",
+        "2 - 3 years",
+        "3 - 4 years",
+        "4 - 5 years",
+        "5+ years",
+        "6 - 7 years",
+        "7 -8 years",
+        "9 - 10 years",
+        "10+ years",
+        "15+ years",
+        "20+ years",
+        "30+ years",
+        "No working years of experience",
       ],
-    },
-    {
-        "id": 2,
-      label: "salary range",
-      name: "salary_range",
+    }
+
+    export const salaryExpectations = {
+      "id": 2,
+      label: "Salary expectations",
+      name: "salary_expectations",
       filters: [
-        "$40k -55k",
-        "$55k - 85k",
-        "$85k - 115k",
-        "$115k - 145k",
-        "$145k - 175k",
+        "Less than ₵1000",
+        "₵1000 - ₵2000",
+        "₵85k - ₵115k",
+        "₵2000 - ₵4000",
+        "₵4000 and above",
+        "Custom"
       ],
-    },
-    {
+    }
+
+    export const work_location = {
         "id": 3,
-      label: "experience",
-      name: "experience",
-      filters: ["Under 1 Year", "1 - 2 Years", "2 - 6 Years", "Over 6 Years"],
-    },
-    {
-        "id": 4,
-      label: "education",
-      name: "education",
+      label: "Work location",
+      name: "work_location",
       filters: [
-        "Graduated High School",
-        "Vocational Course",
-        "Associate Studies",
-        "Bachelor's Degree",
-        "Masters Degree",
-        "PHD",
+        "Onsite",
+        "Hybrid",
+        "Remote",
       ],
-    },
-  ];
+    }
+
+
   

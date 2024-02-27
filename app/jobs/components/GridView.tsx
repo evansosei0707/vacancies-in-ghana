@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from 'framer-motion';
 
 import React from 'react';
@@ -6,10 +8,13 @@ import Image from 'next/image';
 import { CiBookmark } from "react-icons/ci";
 import { RxDotFilled } from "react-icons/rx";
 import Link from 'next/link';
+import Skeleton from './Skeleton';
 
+interface filteredJobsProps  {
+  filteredJobs: jobListType[]
+}
 
-
-export default function GridViewPage() {
+export default function GridViewPage({ filteredJobs }: filteredJobsProps) {
 
   function timeAgo(postedDate: string):string {
     // Convert the posted date string to a Date object
@@ -45,13 +50,21 @@ export default function GridViewPage() {
     }
   }
 
-
+if (!filteredJobs) {
+  return (
+    <Skeleton />
+  )
+}
 
   return (
     <div className='grid min-[1050px]:grid-cols-3 gap-4 w-full h-full bg-[#ededed] place-items-center md:grid-cols-2 p-6 grid-cols-1'>
       {
-        jobs.map((item, idx) => (
-          <div 
+        filteredJobs.map((item, idx) => (
+          <motion.div
+          initial={{ scale: 0.6, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.6, opacity: 0 }}
+          transition={{ duration: 0.2 }}
             key={idx} className=' bg-white w-full flex-1 rounded-md flex flex-col items-start p-3 gap-4 justify-center'>
             <div className='flex items-center w-full justify-between'>
               <div className='flex items-center justify-start'>
@@ -80,7 +93,7 @@ export default function GridViewPage() {
               <p className=' text-[#A0A0A0]/90 text-sm leading-5'>Job function: {item.company_name}</p>
             </div>
             <div className='flex items-center gap-3 justify-start w-full'>
-              <p className='bg-[#f6f6f6] rounded-sm p-1 px-2 text-sm font-medium text-[#545454]/90'>{item.type_of_employment}</p>
+              <p className='bg-[#f6f6f6] rounded-sm p-1 px-2 text-sm font-medium text-[#545454]/90'>{item.job_type}</p>
               <p className='bg-[#f6f6f6] rounded-sm p-1  px-2 text-sm font-medium text-[#545454]/90'>{item.work_location}</p>
               <p className='bg-[#f6f6f6] rounded-sm p-1  px-2 text-sm font-medium text-[#545454]/90'>{item.experience_level}</p>
             </div>
@@ -93,7 +106,7 @@ export default function GridViewPage() {
               <p className=' text-base leading-6 text-mainColor'>{item.salary_range}</p>
               <Link className=' bg-mainColor rounded-md p-2 px-4 text-lg leading-[24px] text-white font-medium' href={`/jobs/${item.title}/${item.id}}`}> Apply now</Link>
             </div>
-          </div>
+          </motion.div>
         ))
       }
     </div>

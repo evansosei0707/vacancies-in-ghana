@@ -94,6 +94,7 @@ input[type="checkbox"]:enabled:checked {
   body {
     @apply bg-background text-foreground;
   }
+
 }
 
 
@@ -102,4 +103,28 @@ input[type="checkbox"] {
   width: 15px;
   height: 15px;
   accent-color: #008080;
+}
+
+.filter-dialog {
+  @apply absolute left-0 z-10  p-3 md:p-0 bg-white h-screen max-w-[300px] -translate-x-[500px] w-full max-h-screen overflow-auto  transition-all duration-300 ease-in-out md:sticky md:top-0 md:max-w-[22%] md:translate-x-0 md:max-h-fit md:h-fit;
+}
+
+.filter-dialog.open {
+  @apply translate-x-0 pointer-events-auto opacity-100;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #E9E9E9;
+  border-radius: 10px;
 }

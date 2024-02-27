@@ -30,7 +30,7 @@ export default function Navbar() {
 console.log(pathName)
 
   return (
-    <header className={ ` ${pathName === '/' || '/jobs'? 'flex' : 'hidden'}  w-full lg:px-10 justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm`}>
+    <header className={ ` ${pathName === '/' || '/jobs'? 'flex' : 'hidden'}  w-full z-20 lg:px-10 justify-between items-center relative h-[80px] px-8 pl-4 bg-white shadow-sm`}>
       <div className='flex items-center justify-center gap-5'>
         <Link href={'/'} className=' w-[48px]  h-[40px] '>
             <Image 

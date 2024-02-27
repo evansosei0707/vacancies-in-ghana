@@ -18,11 +18,12 @@ type jobListType = {
     skills: string[],
     time_posted: string,
     experience_level: string,
-    type_of_employment:  string,
+    job_type:  string,
     salary_range:  string,
     experience:  string,
     logo_url: string,
     applicants: number,
+    [key: string]: string | string[] | number;
   }
 
   type jobFiltersType = {
