@@ -128,3 +128,65 @@ input[type="checkbox"] {
   background: #E9E9E9;
   border-radius: 10px;
 }
+
+/* -------------------------PAGINATION---------------------- */
+.wb-pagination {
+  @apply flex items-center w-full justify-center mt-4  px-4 select-none;
+}
+
+.wb-pagination::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.wb-pagination .pagination-item {
+  @apply p-1;
+}
+
+.wb-pagination .pagination-item .pagination-link {
+  @apply text-inherit w-8 h-8 grid place-items-center mx-3 text-sm;
+}
+
+.wb-pagination .prev,
+.wb-pagination .next {
+  @apply inline-flex text-primary;
+}
+
+.wb-pagination .prev {
+  @apply mr-4;
+}
+.wb-pagination .next {
+  @apply ml-4;
+}
+
+.disabled {
+  @apply opacity-40;
+}
+
+.wb-pagination .pagination-item.pagination-link-active .pagination-link {
+  @apply bg-mainColor rounded-md text-white shadow-md shadow-mainColor/60;
+}
+
+@media (max-width: 640px) {
+  .wb-pagination {
+    @apply max-w-[320px] w-full overflow-auto;
+  }
+}
+
+#nprogress .bar {
+  @apply !bg-primary;
+}
+
+#nprogress .peg {
+  @apply !shadow-none;
+}
+
+#nprogress .spinner-icon {
+  @apply !border-t-primary !border-l-primary;
+}
+
+
+.parent-arrow:hover .child-arrow {
+  transform: translateX(8px);
+  transition: transform 0.5s ease-in-out;
+}
+

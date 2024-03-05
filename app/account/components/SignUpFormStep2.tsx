@@ -13,6 +13,7 @@ import {
  } from '@/components/ui/form';
  import { SubmitHandler, UseFormReturn, useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
+import CustomSelect from '@/components/ui/select';
 import { RegisterStep2Schema } from '@/schemas';
 import { GoArrowRight } from "react-icons/go";
 import Link from 'next/link';
@@ -39,10 +40,12 @@ export default function SignUpFormStep2({handleNext }: SignUpFormStep2Props) {
     defaultValues: {
       experience: '',
       currentJobFunction: '',
-      desiredJobFunction: [ { value: '', label: '' }],
+      desiredJobFunction: [ { value: undefined, label: '' }],
       availability: '',
       qualification: '',
       reviewCheckbox: true,
+      signMeCheckbox: false,
+      termsCheckbox: false,
       // uploadCv: undefined,
     }
 });
@@ -51,10 +54,7 @@ const onSubmit = (values: z.infer<typeof RegisterStep2Schema>) => {
   setError("");
   setSuccess("");
   startTransition(() => {
-      signUpSet2(values).then((data) => {
-              setError(data.error);
-              setSuccess(data.success);
-          })
+      signUpSet2(values)
   })
   console.log(values)
 }
@@ -80,14 +80,14 @@ const {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='gender' className=' font-medium text-base'>Highest Qualification</FormLabel>
                             <FormControl className='w-full'>
-                            <select {...field}
-                              className='flex-1 w-full text-[16px] rounded-md p-4 py-3 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                            <CustomSelect {...field}
+                              className="border py-2 w-full px-4  text-[#1A1A1A]/50 outline-none rounded-[8px] border-[#D0D5DD]"
 
                             defaultValue="">
                               {jobQualifications.map((jobQua, idx) => (
                                 <option key={idx} value={jobQua}>{jobQua}</option>
                               ))}
-                            </select>
+                            </CustomSelect>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>
@@ -100,8 +100,8 @@ const {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='gender' className=' font-medium text-base'>Years of experience</FormLabel>
                             <FormControl className='w-full'>
-                            <select 
-                              className='flex-1 w-full text-[16px] rounded-md p-4 py-3 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                            <CustomSelect
+                                className="border py-2 w-full px-4  text-[#1A1A1A]/50 outline-none rounded-[8px] border-[#D0D5DD]"
 
                               {...field} defaultValue="">
                               <option value="Select years of experience" hidden>
@@ -110,7 +110,7 @@ const {
                               {yearsOfExperience.map((jobQua, idx) => (
                                 <option key={idx} value={jobQua}>{jobQua}</option>
                               ))}
-                            </select>
+                            </CustomSelect>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>
@@ -125,8 +125,8 @@ const {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='currentJobFunction' className=' font-medium text-base'>Current job function</FormLabel>
                             <FormControl className='w-full'>
-                            <select 
-                              className='flex-1 w-full text-[16px] rounded-md p-4 py-3 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                            <CustomSelect 
+                                className="border py-2 w-full px-4  text-[#1A1A1A]/50 outline-none rounded-[8px] border-[#D0D5DD]"
 
                               {...field} defaultValue="">
                               <option value="Select your current job function" hidden>
@@ -135,7 +135,7 @@ const {
                               {currentJobFunction.map((jobQua, idx) => (
                                 <option key={idx} value={jobQua}>{jobQua}</option>
                               ))}
-                            </select>
+                            </CustomSelect>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>
@@ -173,10 +173,10 @@ const {
                         <FormItem className='w-full'>
                             <FormLabel htmlFor='gender' className=' font-medium text-base'>Availability</FormLabel>
                             <FormControl className='w-full'>
-                              <select 
+                              <CustomSelect
                               {...field}
                               defaultValue=""
-                              className='flex-1 w-full text-[16px] rounded-md p-4 py-3 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                              className="border py-2 w-full px-4  text-[#1A1A1A]/50 outline-none rounded-[8px] border-[#D0D5DD]"
 
                               >
                                   <option value="How ready are you?" hidden>
@@ -186,7 +186,7 @@ const {
                                   <option key={idx} value={jobQua}>{jobQua}</option>
                               ))}
                                     
-                              </select>
+                              </CustomSelect>
                             </FormControl>
                             <FormMessage className='font-medium text-base' />
                         </FormItem>
@@ -202,15 +202,15 @@ const {
                             <input
                                 {...fieldValues}
                                 type='file'
-                                accept=""
                                 placeholder='upload your CV/Resume'
                                 id='uploadCv'
+                                accept="application/pdf, application/docx"
                                 onChange={(e) => {
                                   const file =  e.target.files?.[0]
                                   fieldValues.onChange(file)
                                   console.log(file)
                                 }}
-                                className='flex-1 w-full text-[16px] rounded-md p-4 py-2 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
+                                className='flex-1 w-full text-[15px] rounded-md p-4 py-2 border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
                             />
                         </FormControl>
                         <FormMessage className='font-medium text-base' />
@@ -222,73 +222,78 @@ const {
                 <p className='text-[#1A1A1A] font-semibold'>Would you like a free CV review?</p>
                 <p className='text-[#6E6E6E]/80 leading-[22px] font-[300]'>Subscribe and receive a free CV review from our experts and know how to best stand out to employers.</p>
                 <div className='flex items-center justify-center gap-6'>
-                  {/* <FormField 
+                  <FormField 
                         control={form.control}
                         name='reviewCheckbox'
-                        render={({ field }) => (
+                        render={({ field : { value, ...fieldValues} }) => (
                           <FormItem className='w-full flex flex-row-reverse items-center justify-center gap-3'>
-                          <FormLabel htmlFor='reviewCheckbox' className=' font- text-sm text-[#6E6E6E]/80 leading-[24px] font-light'>I would like a free CV review</FormLabel>
+                          <FormLabel htmlFor='reviewCheckbox' className=' text-[15px] -mb-1 text-[#6E6E6E]/80 leading-[24px] font-light'>I would like a free CV review</FormLabel>
                           <FormControl className='w-max'>
-                          <Input   {...field} type='checkbox' id='reviewCheckbox'  className='  border-gray-500   data-[state=checked]:border-none w-4 bg-[#008080] h-4 data-[state=checked]:bg-[#008080]'/>
+                            <Input   
+                                {...fieldValues}
+                                type='checkbox' 
+                                id='reviewCheckbox'
+                                className=' '
+                            />
                           </FormControl>
                           <FormMessage className='font-medium text-base' />
                       </FormItem>
                         )}
-                    /> */}
-                    <input id='1' type="checkbox" />
-                    <label htmlFor="1">I would like a free CV review</label>
+                    />
+                    {/* <input id='1' type="checkbox" />
+                    <label htmlFor="1">I would like a free CV review</label> */}
 
-                    <Link href="/services/cv-resume-review" className="flex text-[#008080] hover:underline text-sm whitespace-nowrap items-center justify-center gap-4" >
-                      Read more <GoArrowRight color='#008080' />
+                    <Link href="/services/cv-resume-review" className="flex text-[#008080] hover:underline text-[15px] whitespace-nowrap items-center justify-center gap-4" >
+                      Read more <GoArrowRight color='#008080' fontSize={15} />
                     </Link>
                 </div>
               
               </div>
               <div className='w-full mt-9 px-3 py-2 flex flex-col items-start gap-4 justify-center '>
-                    {/* <FormField 
+                    <FormField 
                         control={form.control}
                         name='termsCheckbox'
-                        render={({ field }) => (
+                        render={({ field : { value, ...fieldValues} }) => (
 
                           <FormItem className='w-full flex flex-row-reverse items-center justify-end gap-3'>
-                            <FormLabel htmlFor='termsCheckbox' className=' text-[17px] text-[#6E6E6E]/90 leading-[24px] font-light'>
-                            By clicking "Create Your Account", you agree to our <Link className=' font-normal hover:underline text-[#008080]' href={'/terms-and-condition'}>Terms</Link> and  <Link className=' font-normal hover:underline text-[#008080]' href={'privacy-policy'}>Policy</Link>  Policy.
+                            <FormLabel htmlFor='termsCheckbox' className=' -mb-1 text-[17px] text-[#6E6E6E]/90 leading-[24px] font-light'>
+                            By clicking &quot;Create Your Account&quot;, you agree to our <Link className=' font-normal hover:underline text-[#008080]' href={'/terms-and-condition'}>Terms</Link> and <Link className=' font-normal hover:underline text-[#008080]' href={'privacy-policy'}>Policy</Link>  Policy.
                             </FormLabel>
                             <FormControl className='w-max'>
-                              <Input   {...field} type='checkbox' id='termsCheckbox'  className='  border-gray-500   data-[state=checked]:border-none w-4 h-4 data-[state=checked]:bg-[#008080]'/>
+                              <Input   {...fieldValues} type='checkbox' id='termsCheckbox'  className='  border-gray-500   data-[state=checked]:border-none w-4 h-4 data-[state=checked]:bg-[#008080]'/>
                             </FormControl>
                           <FormMessage className='font-medium text-base' />
                       </FormItem>
                         )}
-                    /> */}
+                    />
 
-                    {/* <FormField 
+                    <FormField 
                         control={form.control}
                         name='signMeCheckbox'
-                        render={({ field }) => (
+                        render={({ field : { value, ...fieldValues} }) => (
 
                           <FormItem className='w-full flex flex-row-reverse items-center justify-end gap-3'>
-                            <FormLabel htmlFor='signMeCheckbox' className=' text-[17px] text-[#6E6E6E]/90 leading-[24px] font-light'>
+                            <FormLabel htmlFor='signMeCheckbox' className=' -mb-1 text-[17px] text-[#6E6E6E]/90 leading-[24px] font-light'>
                             Sign me up for email and browser job alerts.
                             </FormLabel>
                             <FormControl className='w-max'>
-                              <input   {...field} type='checkbox' id='signMeCheckbox'  className='  border-gray-500   data-[state=checked]:border-none w-4 h-4 data-[state=checked]:bg-[#008080]'/>
+                              <input   {...fieldValues} type='checkbox' id='signMeCheckbox'  className='  border-gray-500   data-[state=checked]:border-none w-4 h-4 data-[state=checked]:bg-[#008080]'/>
                             </FormControl>
                           <FormMessage className='font-medium text-base' />
                       </FormItem>
                         )}
-                    /> */}
+                    />
 
                     
-                      <div className=' space-x-3'>
+                      {/* <div className=' space-x-3'>
                       <input  id='3' type="checkbox" />
                       <label htmlFor="3">By clicking Create Your Account, you agree to our and Privacy Policy.</label>
-                    </div>
+                    </div> */}
                     
-                    <div className=' space-x-3'>
+                    {/* <div className=' space-x-3'>
                       <input id='2' type="checkbox" />
                       <label htmlFor="2">Sign me up for email and browser Job alerts.</label>
-                    </div>
+                    </div> */}
       
               </div>
           </div>

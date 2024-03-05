@@ -47,7 +47,6 @@ const onSubmit = (values: z.infer<typeof RegisterStep1Schema>) => {
   setSuccess("");
   startTransition(() => {
       signUpSet1(values).then((data) => {
-              setError(data.error);
               setSuccess(data.success);
           })
   })

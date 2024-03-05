@@ -4,7 +4,7 @@ import Filters from '@/app/Components/JobFilters'
 import React, { useMemo, useState } from 'react'
 import AllJobs from './AllJobs'
 import { jobs } from '@/app/data/jobList'
-import { FiDelete } from 'react-icons/fi'
+
 
 export default function JobberPage() {
 
@@ -63,8 +63,9 @@ export default function JobberPage() {
           isFilterMenuOpen={isFilterMenuOpen} 
           setIsFilterMenuOpen={setIsFilterMenuOpen}
         />
-        
-        <AllJobs filteredJobs={filteredJobs} setSortedJobs={setSortedJobs} setIsFilterMenuOpen={setIsFilterMenuOpen} />
+        <section className='flex flex-col items-start h-full text-black justify-center gap-2 w-full md:w-[78%]'>
+            <AllJobs filteredJobs={filteredJobs} setSortedJobs={setSortedJobs} setIsFilterMenuOpen={setIsFilterMenuOpen} />
+        </section>
     </div>
   )
 }

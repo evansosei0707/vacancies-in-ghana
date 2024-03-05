@@ -32,3 +32,10 @@ type jobListType = {
     name: string,
     filters: string[],
   }
+
+  type jobCategoryType = {
+      category: string,
+      lowestLevel: string,
+      highestLevel: string,
+      numberOfJobs: string,
+  }

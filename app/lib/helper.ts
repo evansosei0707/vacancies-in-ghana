@@ -1,3 +1,13 @@
+import doctorImage from "@/public/doctor.jpg"
+import engineersImage from "@/public/engineers.jpeg"
+import hairDressersImage from "@/public/hair salon.webp"
+import tailorImage from "@/public/sewing.jpg"
+import officeWorkerImage from "@/public/office-work.jpg"
+
+import blogImage1 from "@/public/Rectangle 132.png"
+import blogImage2 from "@/public/Rectangle 133.png"
+import blogImage3 from "@/public/Rectangle 134.png"
+
 export const serviceLinks: { title: string; href: string; description: string }[] = [
     {
       title: "Alert Dialog",
@@ -284,5 +294,169 @@ export const serviceLinks: { title: string; href: string; description: string }[
     {
       label: 'Leadership & Team',
       link: '/leadership-&-teams',
+    },
+   ]
+
+
+ export  const jobCategory: jobCategoryType[] = [
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+    {
+      category: 'Business Development',
+      lowestLevel: 'Mid level',
+      highestLevel: 'Executive level',
+      numberOfJobs: '120',
+    },
+   ]
+
+   export const professionsImage =  [
+    {
+      labelImage: doctorImage,
+    },
+    {
+      labelImage: engineersImage,
+    },
+    {
+      labelImage: hairDressersImage,
+    },
+    {
+      labelImage: tailorImage,
+    },
+    {
+      labelImage: officeWorkerImage,
+    },
+   ]
+
+   export const pricingPackages = [
+    {
+      packageName: 'Gold',
+      price: '₵ 1,500',
+      benefits: [
+        "CV Drafts & Revisions",
+        "Career Questionnaire",
+        "Finale Documents",
+        "Finale Cover Letter Delivery",
+        "Finale LinkedIn Profile Delivery",
+        "Career Questionnaire",
+        "Job Recommendations",
+        "Upload Existing CV"
+      ]
+    },
+    {
+      packageName: 'Silver',
+      price: '₵ 1,000',
+      benefits: [
+        "CV Drafts & Revisions",
+        "Career Questionnaire",
+        "Finale Documents",
+        "Finale Cover Letter Delivery",
+        "Career Questionnaire",
+        "Job Recommendations",
+        "Upload Existing CV"
+      ]
+    },
+    {
+      packageName: 'Bronze',
+      price: '₵ 400',
+      benefits: [
+        "CV Drafts & Revisions",
+        "Career Questionnaire",
+        "Finale Documents",
+        "Career Questionnaire",
+        "Upload Existing CV"
+      ]
+    },
+   ]
+
+
+   export const faqsData = [
+    {
+      id: 0,
+      question: 'How will my document be sent to me?',
+      answers: 'We will manage and deliver your documents through the best Mail delivery service we find suit. Note! this comes with an additional cost',
+    },
+    {
+      id: 1,
+      question: 'How will my document be sent to me?',
+      answers: 'We will manage and deliver your documents through the best Mail delivery service we find suit. Note! this comes with an additional cost',
+    },
+    {
+      id: 2,
+      question: 'How will my document be sent to me?',
+      answers: 'We will manage and deliver your documents through the best Mail delivery service we find suit. Note! this comes with an additional cost',
+    },
+    {
+      id: 3,
+      question: 'How will my document be sent to me?',
+      answers: 'We will manage and deliver your documents through the best Mail delivery service we find suit. Note! this comes with an additional cost',
+    },
+    {
+      id: 4,
+      question: 'How will my document be sent to me?',
+      answers: 'We will manage and deliver your documents through the best Mail delivery service we find suit. Note! this comes with an additional cost',
+    },
+   ]
+
+   export const blogContents = [
+    {
+      id: 0,
+      image: blogImage1,
+      title: 'Drafting a perfect CV',
+      des: 'Hiring efficiency has been a buzzword in the recruitment industry for quite some time now. And rightly so; its importance cannot be underestimated. Hiring efficiently is not merely an advantage; it’s the cornerstone of success. ',
+      category: 'Job hunting'
+    },
+    {
+      id: 1,
+      image: blogImage2,
+      title: 'Drafting a perfect CV',
+      des: 'Hiring efficiency has been a buzzword in the recruitment industry for quite some time now. And rightly so; its importance cannot be underestimated. Hiring efficiently is not merely an advantage; it’s the cornerstone of success. ',
+      category: 'Job hunting'
+    },
+    {
+      id: 2,
+      image: blogImage3,
+      title: 'Drafting a perfect CV',
+      des: 'Hiring efficiency has been a buzzword in the recruitment industry for quite some time now. And rightly so; its importance cannot be underestimated. Hiring efficiently is not merely an advantage; it’s the cornerstone of success. ',
+      category: 'Job hunting'
     },
    ]

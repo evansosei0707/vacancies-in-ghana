@@ -45,7 +45,7 @@ export default function AccountType() {
         <div className="flex flex-col md:flex-row gap-10 items-center mt-3 md:mt-5 lg:mt-7 justify-center">
             {
                 accountTypes.map((item, idx) => (
-                    <div key={idx} onClick={() => SetToggleAccount(item)} className={`flex flex-col cursor-pointer items-center justify-start ${toggleAccount?.id === item.id ? "border-[#008080]": "border-[#D0D5DD]"} border-[#008080] p-2 px-4 pt-5 border h-[182px] w-[80%] max-w-[414px] md:max-w-[35%] rounded-md gap-4`}>
+                    <div key={idx} onClick={() => SetToggleAccount(item)} className={`flex flex-col cursor-pointer items-center justify-start hover:border-mainColor transition-colors duration-100 border-2 ${toggleAccount?.id === item.id ? "border-[#008080]": "border-[#D0D5DD]"} border-[#008080] p-2 px-4 pt-5 border h-[182px] w-[80%] max-w-[414px] md:max-w-[35%] rounded-md gap-4`}>
                         <div className="flex items-center w-full justify-between ">
                             <Image
                                 src={item.logo}
@@ -61,12 +61,12 @@ export default function AccountType() {
             }
         </div>
 
-        <button className={`md:max-w-[223px] text-white w-[80%] max-w-[414px] h-[50px] transition-all duration-100 rounded-sm ${toggleAccount ? 'bg-[#088080] ': 'bg-[#9AA4A4] cursor-not-allowed' } text-xl text-center leading-[24px]`}>
-            {toggleAccount?.name ?  (
-                 <Link href={`/account${toggleAccount?.link}`} >Join as { toggleAccount.name }</Link>
-            ) : 'Create account'
-            }
-        </button> 
+        {toggleAccount?.name ?  (
+                <Link href={`/account${toggleAccount?.link}`}  className={`md:max-w-[223px] text-white w-[80%] max-w-[414px] h-[50px] pt-3 transition-all duration-100 rounded-sm ${toggleAccount ? 'bg-[#088080] ': 'bg-[#9AA4A4] outline-none cursor-not-allowed' } text-xl text-center leading-[24px]`} >Join as { toggleAccount.name }</Link>
+        ) : 
+        <button className={`md:max-w-[223px] text-white w-[80%] max-w-[414px] h-[50px] transition-all duration-100 rounded-sm ${toggleAccount ? 'bg-[#088080] ': 'bg-[#9AA4A4] cursor-not-allowed' } text-xl text-center leading-[24px]`}>Creat account</button>
+        }
+
 
         <Link href={'/account/login'} className=" text-base font-medium mb-5 whitespace-nowrap text-[#6E6E6E]">
             Already have an account? <span className=" text-[#008080] hover:underline">Sign in</span>

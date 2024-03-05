@@ -18,10 +18,10 @@ const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
 
   return (
-    <footer className="w-full flex flex-col items-center justify-center font-normal gap-6 bg-mainColor mx-auto text-white">
+    <footer className="w-full flex flex-col items-center justify-center  gap-6 bg-mainColor mx-auto text-white">
         <div className="flex flex-col min-[748px]:flex-row w-[95%] md:w-[90%] text-white py-11 border-white/80 items-start justify-center gap-8" >
-            <div className="flex flex-col min-[1322px]:flex-row min-[1322px]:justify-between  flex-1 text-white items-start justify-center gap-8">
-                <div className="flex flex-col flex-1 justify-center items-start  gap-4">
+            <div className="flex flex-col min-[1322px]:flex-row min-[1322px]:justify-between w-full  flex-1 text-white items-start justify-center gap-8">
+                <div className="flex flex-col flex-1 justify-center w-full items-start  gap-4">
                     <div className="w-[268px] h-[41px]">
                         <Image
                             src={logoWhite}
@@ -30,19 +30,19 @@ const currentYear = currentDate.getFullYear();
                             alt="white vacancies in ghana logo"
                         />
                     </div>
-                    <p className=" text-xl leading-[24px] font-light ">Post jobs , Review CV&lsquo;s or Resumes and view job employment opportunities.</p>
+                    <p className=" text-xl leading-[24px]  ">Post jobs , Review CV&lsquo;s or Resumes and view job employment opportunities.</p>
                     <form className="flex flex-col w-full justify-center mb-7 items-start gap-3">
-                        <div className="flex items-center h-[55px] box-border w-max overflow-hidden justify-center gap-3">
+                        <div className="flex items-center h-[55px] box-border px-4 w-max bg-[#E9E9E9] overflow-hidden justify-center rounded-lg gap-4">
                                 <input 
-                                    className=" border-2 text-black px-3 outline-none placeholder:text-base placeholder:leading-[24px] placeholder:font-normal  shrink h-full bg-white rounded-lg   py-4"
+                                    className=" text-black px-3 outline-none placeholder:text-base placeholder:leading-[24px] placeholder:text-[#6E6E6E] placeholder:font-normal bg-transparent  shrink h-full     py-4"
                                     type="email"
                                     placeholder="Suscribe to our newsletter"
                                 />
                                 <button
                                     type="submit"
-                                    className="bg-white text-mainColor flex items-center justify-center h-full rounded-lg p-4"
+                                    className=" rounded-full w-10  text-mainColor flex items-center justify-center h-10 bg-mainColor p-2"
                                 >
-                                    <FiSend fontSize={25} />
+                                    <FiSend fontSize={25} color="#ffffff" />
                                 </button>
                         </div>
                     </form>
@@ -102,7 +102,7 @@ const currentYear = currentDate.getFullYear();
             </div>
         </div>
         <div className="flex flex-col items-center justify-center gap-4 w-[95%] md:w-[90%]">
-            <div className="flex items-center border-b border-white/60 pb-6 justify-between w-full">
+            <div className="flex lg:items-center flex-col lg:flex-row items-start gap-4 justify-center border-b border-white/60 pb-6 lg:justify-between w-full">
                 <div className="flex items-center justify-start gap-6">
                     <p className=" text-xl leading-[24px] text-white ">follow us:</p>
                     <div className="flex items-center text-white justify-center gap-3">
@@ -162,16 +162,16 @@ const currentYear = currentDate.getFullYear();
             </div>
             <div className="flex md:items-center flex-col md:flex-row justify-start pt-2 gap-5 items-start mx-auto w-[95%] font-kumb  md:justify-between pb-11">
                     <div className="flex items-center justify-center gap-4">
-                        <Link href='/privacy' className="text-xl leading-[24px]">
+                        <Link href='/privacy' className="text-[20px] font-normal tracking-wide leading-[24px]">
                             Privacy Policy
                         </Link>
-                        <Link href='/privacy' className="text-xl leading-[24px]">
+                        <Link href='/privacy' className="text-[20px] leading-[24px]">
                             Terms
                         </Link>
                     </div>
-                    <p className=" text-white text-xl leading-[24px] whitespace-nowrap ">
-                         <span className=" text-xl">&copy;</span>2017 - {currentYear}. Vacancies in Ghana.</p>
-                    <a href='/privacy' className="text-xl leading-[24px] text-white">info@vacanciesinghana.com</a>
+                    <p className=" text-white text-[20px] leading-[24px] whitespace-nowrap ">
+                         <span className=" text-[20px]">&copy;</span>2017 - {currentYear}. Vacancies in Ghana.</p>
+                    <a href='/privacy' className="text-[20px] leading-[24px] text-white">info@vacanciesinghana.com</a>
             </div> 
         </div>
     </footer> 

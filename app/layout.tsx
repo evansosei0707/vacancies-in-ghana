@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar";
 import "./globals.css";
 import localFont from "next/font/local"
 import Footer from "./Components/Footer";
+import { db } from "@/lib/db";
 
 const myFont = localFont({
   src: [
@@ -44,6 +45,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <body className={`${myFont.className} text-lg  w-full min-h-[100vh] mx-auto overflow-x-hidden max-w-[1500px]`}>
