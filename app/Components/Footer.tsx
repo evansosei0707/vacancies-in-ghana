@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import logoWhite from "@/public/vig-white.png"
+import logoWhite from "@/public/white_logo.png"
 import { FiSend } from "react-icons/fi";
 import { forCompanies, forJobSeekers, resources, vacancies } from "../lib/helper";
 import instragramLogo from "@/public/Frame (3).png"
@@ -52,7 +52,7 @@ const currentYear = currentDate.getFullYear();
                     <div className="flex flex-col justify-center items-start font-kumb gap-4">
                         {
                             forJobSeekers.map((item,idx) => (
-                                <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white text-[16px] font-light leading-[20px] tracking-wide hover:text-primary transition-colors duration-100">
+                                <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white text-[16px] font-light leading-[20px] tracking-wide hover:underline transition-colors duration-100">
                                     {item.label}
                                 </Link>
                             ))
@@ -68,7 +68,7 @@ const currentYear = currentDate.getFullYear();
                     <div className="flex flex-col justify-center items-start font-kumb gap-4">
                             {
                                 forCompanies.map((item,idx) => (
-                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide  hover:text-primary transition-colors duration-100">
+                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide hover:underline transition-colors duration-100">
                                         {item.label}
                                     </Link>
                                 ))
@@ -80,7 +80,7 @@ const currentYear = currentDate.getFullYear();
                     <div className="flex flex-col justify-center items-start font-kumb gap-4">
                             {
                                 resources.map((item,idx) => (
-                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide  hover:text-primary transition-colors duration-100">
+                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide hover:underline transition-colors duration-100">
                                         {item.label}
                                     </Link>
                                 ))
@@ -92,7 +92,7 @@ const currentYear = currentDate.getFullYear();
                     <div className="flex flex-col justify-center items-start font-kumb gap-4">
                             {
                                 vacancies.map((item,idx) => (
-                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide  hover:text-primary transition-colors duration-100">
+                                    <Link key={idx} href={`/job-seeker/${item.link}`} className="text-white font-light text-[16px] leading-[20px] tracking-wide hover:underline transition-colors duration-100">
                                         {item.label}
                                     </Link>
                                 ))

@@ -17,6 +17,8 @@ import { regionInGhana } from '@/app/lib/helper';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpSet1 } from '@/actions/login';
 import Select from '@/components/ui/select';
+import FormSuccess from './FormSuccess';
+import FormError from './FormError';
 
 
 interface SignUpFormStep1Props {
@@ -48,6 +50,9 @@ const onSubmit = (values: z.infer<typeof RegisterStep1Schema>) => {
   startTransition(() => {
       signUpSet1(values).then((data) => {
               setSuccess(data.success);
+              setError(data.error);
+              console.log(data.error)
+              console.log(data.success)
           })
   })
 }
@@ -275,6 +280,8 @@ useEffect(() => {
                 </div>
             </div>
             <div className='items-center mx-auto flex flex-col w-[90%] mt-9 justify-start gap-4'>
+            <FormSuccess message={success} />
+            <FormError message={error} />
               <button type='submit' className='w-full cursor-pointer bg-[#008080] hover:bg-black mt-6 mb-8 text-white font-medium text-xl leading-[24px] rounded-md md:max-w-[400px] flex items-center justify-center  h-[50px]'>
                   <span>Next</span>
               </button>

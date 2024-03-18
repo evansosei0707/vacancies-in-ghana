@@ -23,6 +23,15 @@ model User {
   dateOfBirth   String?
   gender        String
   location      String
+  highestQalifcation String
+  experience    String
+  currentJobFunction  String
+  desiredJobFunction String[]
+  availablity   String?
+  termsCheckbox Boolean
+  reviewCheckbox  Boolean
+  signMeCheckbox Boolean
+
   emailVerified DateTime?
   image         String?
   accounts      Account[]

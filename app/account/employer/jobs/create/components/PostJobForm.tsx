@@ -11,7 +11,7 @@ import employerProfilePic from "@/public/Rectangle 122.png";
 
 
 const PostJobForm = () => {
-   const [currentStep, setCurrentStep] = useState(1);
+   const [currentStep, setCurrentStep] = useState(2);
 
     const handleNext = () => {
       setCurrentStep(currentStep + 1);
@@ -25,6 +25,7 @@ const PostJobForm = () => {
                     <div className=' h-[32px] w-[32px] overflow-hidden rounded-md'>
                         <Image
                             src={employerProfilePic}
+                            
                             alt='employer profile picture'
                             className='w-full h-full object-cover object-center'
                         />
@@ -43,7 +44,6 @@ const PostJobForm = () => {
         {currentStep === 1 && <PostFormStep1 handleNext={handleNext} />}
         {currentStep === 2 && <PostFormStep2  handleNext={handleNext} />}
       </div>
-       
     )
   }
 

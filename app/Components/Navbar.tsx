@@ -20,6 +20,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
   } from "@/components/ui/navigation-menu";
+import { serviceListType } from '@/type';
 
 
 export default function Navbar() {
@@ -82,7 +83,7 @@ console.log(pathName)
                 <NavigationMenuLink asChild>
                   <Link
                     className="flex h-full text-white w-full blog-bg select-none flex-col justify-end rounded-md bg-gradient-to-b overflow-hidden from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                    href="/blog"
+                    href="/discover/corporate-news"
                   >
                     <FaRegNewspaper className="h-6 text-white z-20 w-6" />
                     <div className="mb-2 mt-4 z-20 text-lg text-white font-medium">
@@ -104,7 +105,7 @@ console.log(pathName)
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Our Service</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Services</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {serviceList.map((component: serviceListType, idx: any) => (
@@ -118,6 +119,15 @@ console.log(pathName)
               ))}
             </ul>
           </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
+          <Link href="/about" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              <span className='text-lg  text-[#4A4A48]'>
+                About
+              </span>
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
        
        {/* <NavigationMenuItem className='text-lg'>

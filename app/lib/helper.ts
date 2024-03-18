@@ -7,6 +7,7 @@ import officeWorkerImage from "@/public/office-work.jpg"
 import blogImage1 from "@/public/Rectangle 132.png"
 import blogImage2 from "@/public/Rectangle 133.png"
 import blogImage3 from "@/public/Rectangle 134.png"
+import { jobCategoryType, jobSeekersType, serviceListType } from "@/type"
 
 export const serviceLinks: { title: string; href: string; description: string }[] = [
     {
@@ -366,48 +367,6 @@ export const serviceLinks: { title: string; href: string; description: string }[
       labelImage: officeWorkerImage,
     },
    ]
-
-   export const pricingPackages = [
-    {
-      packageName: 'Gold',
-      price: '₵ 1,500',
-      benefits: [
-        "CV Drafts & Revisions",
-        "Career Questionnaire",
-        "Finale Documents",
-        "Finale Cover Letter Delivery",
-        "Finale LinkedIn Profile Delivery",
-        "Career Questionnaire",
-        "Job Recommendations",
-        "Upload Existing CV"
-      ]
-    },
-    {
-      packageName: 'Silver',
-      price: '₵ 1,000',
-      benefits: [
-        "CV Drafts & Revisions",
-        "Career Questionnaire",
-        "Finale Documents",
-        "Finale Cover Letter Delivery",
-        "Career Questionnaire",
-        "Job Recommendations",
-        "Upload Existing CV"
-      ]
-    },
-    {
-      packageName: 'Bronze',
-      price: '₵ 400',
-      benefits: [
-        "CV Drafts & Revisions",
-        "Career Questionnaire",
-        "Finale Documents",
-        "Career Questionnaire",
-        "Upload Existing CV"
-      ]
-    },
-   ]
-
 
    export const faqsData = [
     {

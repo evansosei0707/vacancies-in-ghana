@@ -17,7 +17,7 @@ import CustomSelect from '@/components/ui/select';
 import { RegisterStep2Schema } from '@/schemas';
 import { GoArrowRight } from "react-icons/go";
 import Link from 'next/link';
-import { signUpSet2 } from '@/actions/login';
+import { signUpSet2 } from '@/actions/loginStep2';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { availability, currentJobFunction, jobQualifications, yearsOfExperience } from '@/app/lib/helper';
 import { desiredJobFunction } from '@/app/lib/helper';

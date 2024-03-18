@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { currentJobFunction, regionInGhana } from "@/app/lib/helper";
 import { filterJobs } from "@/actions/jobsSearchFilter";
 import { LuFilter } from "react-icons/lu";
+import FormSubmitButton from "@/components/FormSubmitButton";
+import { jobListType } from "@/type";
+
 
 
 
@@ -73,12 +76,12 @@ export default function JobNav({ filteredJobs, setIsFilterMenuOpen, setSortedJob
                     ))}
                 </CustomSelect>
             </div>
-            <button
+            <FormSubmitButton
                 type="submit"
                 className="border py-2 bg-[#9AA4A4] w-full md:w-auto outline-none text-white text-lg leading-[24px]  px-6 rounded-[8px] border-[#D0D5DD]"
             >
                 Search
-            </button>
+            </FormSubmitButton>
         </form>
         <div className="flex md:justify-between md:flex-row w-full flex-col-reverse gap-4 items-center justify-center">
             <div className="text-base flex  justify-start items-center gap-2  text-[#1A1A1A]/70 leading-[16px] font-medium flex-now{rap flex items-center justify-center">

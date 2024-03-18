@@ -16,7 +16,7 @@ export default forwardRef<
         ref={ref}
         {...props}
       />
-      <ChevronDown className="absolute right-3 top-3 h-4 w-4 opacity-50" />
+      <ChevronDown className="absolute right-3 top-3 h-5 w-5 opacity-50" />
     </div>
   );
 });

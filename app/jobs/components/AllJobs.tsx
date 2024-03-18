@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import JobNav from "./JobNav";
-import Jobs from "./GridView";
 import GridView from "./GridView";
 import ListView from "./ListView";
 import { FiChevronsLeft, FiChevronsRight, FiDelete } from 'react-icons/fi'
 import ReactPaginate from 'react-paginate'
+import { jobListType } from "@/type";
 
 interface filteredJobsProps  {
   filteredJobs: jobListType[]

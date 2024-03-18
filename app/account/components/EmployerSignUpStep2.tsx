@@ -20,6 +20,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { availability, currentJobFunction, jobQualifications, yearsOfExperience } from '@/app/lib/helper';
 import { desiredJobFunction } from '@/app/lib/helper';
 import { employerSignUpSet2 } from '@/actions/employerSignUp';
+import { citiesInGhana } from '@/app/data/ghanaCities';
+import LocationInput from '@/components/ui/LocationInput';
+import { X } from 'lucide-react';
 
 
 
@@ -64,6 +67,7 @@ const onSubmit = (values: z.infer<typeof EmployerRegisterSchema2>) => {
 const {
    handleSubmit,
    watch,
+   setValue,
    trigger,
    control
 } = form;
@@ -143,6 +147,37 @@ const {
                         </FormItem>
                     )}
                   />                
+                <FormField 
+                    control={form.control}
+                    name='location'
+                    render={({ field }) => (
+                        <FormItem className='w-full'>
+                            <FormLabel htmlFor='numberOfPersonnes' className=' font-medium text-base'>Location</FormLabel>
+                            <FormControl className='w-full'>
+                              <LocationInput 
+                                onLocationSelected={field.onChange}
+                                ref={field.ref}
+                               />
+                            </FormControl>
+                            {watch("location") && (
+                              <div className='flex items-center gap-1'>
+                                <button 
+                                  type='button'
+                                  onClick={() => {
+                                    setValue("location", "", {shouldValidate: true})
+                                  }}
+                                >
+                                  <X size={20} />
+                                </button>
+                                <span className='text-sm'>
+                                  {watch("location")}
+                                </span>
+                              </div>
+                            )}
+                            <FormMessage className='font-medium text-base' />
+                        </FormItem>
+                    )}
+                  />                
               </div>
               <div className='items-start mx-auto flex  rounded-md flex-col w-full mt-9 justify-start gap-4'>
                 <p className=' font-medium text-[24px] w-[80%] text-left leading-5'>Company information</p>
@@ -159,7 +194,7 @@ const {
                                     <Input
                                         {...field}
                                         disabled={isPending}
-                                        type='text'
+                                        type='url'
                                         id='webUrl'
                                         placeholder='www.yourcompanywebsite.com'
                                         className='flex-1 w-full text-[20px] p-5 text-black border placeholder:text-[20px] leading-[24px] outline-none text-[#1A1A1A]/50'
@@ -249,7 +284,7 @@ const {
                                   type='file'
                                   placeholder='upload your company logo'
                                   id='companyLogo'
-                                  accept="application/pdf, application/docx"
+                                  accept="image/*"
                                   onChange={(e) => {
                                     const file =  e.target.files?.[0]
                                     fieldValues.onChange(file)

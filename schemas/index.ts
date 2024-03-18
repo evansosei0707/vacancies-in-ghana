@@ -1,3 +1,5 @@
+import { citiesInGhana } from '@/app/data/ghanaCities';
+import { typeOfEmployment } from '@/app/data/jobFilters';
 import { X } from 'lucide-react';
 import { z, ZodError } from 'zod';
 
@@ -128,6 +130,22 @@ export const EmployerRegisterSchema1 = z.object({
     }).regex(/^\d+$/, "Must be a number").max(10, "Number can't be longer than 10 digits"),
 })
 
+const companyLogoSchema = z.custom<File | undefined>()
+.refine(file => {
+    !file || (file instanceof File && file.type.startsWith("image/"))
+}, "Must be an image file")
+.refine( file => {
+    return !file || file.size < 1024 * 1024 * 2
+}, "File must be less than 2MB");
+
+const applicationSchema = z.object({
+    companyEmail: z.string().max(100).email().optional().or(z.literal("")),
+    webUrl: z.string().max(100).url().optional().or(z.literal("")),
+})
+.refine( data => data.companyEmail || data.webUrl, {
+    message: "Email or url is required!",
+    path: ["companyEmail"]
+})
 
 export const EmployerRegisterSchema2 = z.object({
     companyName: z.string().min(1,{
@@ -139,14 +157,16 @@ export const EmployerRegisterSchema2 = z.object({
     personnels: z.string().min(1, {
         message: "Please choose number of personnels"
     }),
+    location: z.string().min(1, {
+        message: "Location required!"
+    }).refine(
+        value => citiesInGhana.map(item => {
+            item.city.includes(value)
+        }),
+        "Invalid location type"
+    ),
     category: z.string().min(1, {
         message: "Employment cateogry is required!"
-    }),
-    webUrl: z.string().min(1, {
-        message: "Enter country code!"
-    }).optional(),
-    companyEmail: z.string().email({
-        message: "Enter a valid email address"
     }),
     companyAddress: z.string().min(1, {
         message: "company's address is required!"
@@ -154,22 +174,25 @@ export const EmployerRegisterSchema2 = z.object({
     companyPhone: z.string().min(9, {
         message: "Mobile number is required!"
     }).regex(/^\d+$/, "Must be a number").max(10, "Number can't be longer than 10 digits").optional(),
-    companyLogo: z.custom<File>((file) => file instanceof File, {
-        message: 'Enter a valid file format'
-    }).optional(),
+    companyLogo: companyLogoSchema,
     termsCheckbox: z.boolean(),
     jobAlert: z.boolean(),
     jobTips: z.boolean(),
 })
+.and(applicationSchema)
+
 
 
 export const PostJobSchema = z.object({
     jobTitle: z.string().min(1,{
         message: "Job title is required!"
-    }),
+    }).max(100),
     jobFunction: z.string().min(1, {
         message: "Job function required!"
-    }),
+    }).refine(
+        value => typeOfEmployment.filters.includes(value),
+        "Invalid job type"
+    ),
     jobType: z.string().min(1, {
         message: "Work type is required!"
     }),
@@ -188,3 +211,24 @@ export const PostJobSchema = z.object({
     jobPostPeriod: z.string().optional(),
 })
 
+export const PostJobSchema2 = z.object({
+    description: z.string().min(1, {
+        message: "description can't be empty!"
+    })
+})
+
+export const ContactSchema = z.object({
+    email: z.string().email({
+        message: "Email is required!"
+    }),
+    countryCode:  z.string(),
+    name: z.string().min(1, {
+        message: "First Name is required!"
+    }),
+    phoneNumber:  z.string().min(9, {
+        message: "Mobile number is required!"
+    }).regex(/^\d+$/, "Must be a number").max(10, "Number can't be longer than 10 digits").optional(),
+    message: z.string().min(1, {
+        message: "description can't be empty!"
+    })
+})

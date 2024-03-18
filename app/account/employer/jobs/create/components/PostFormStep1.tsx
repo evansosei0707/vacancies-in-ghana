@@ -20,15 +20,17 @@ import CustomSelect from '@/components/ui/select';
 import { PostJobSchema } from '@/schemas';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { currentJobFunction, desiredJobFunction, jobQualifications, yearsOfExperience } from '@/app/lib/helper';
+import { typeOfEmployment } from '@/app/data/jobFilters';
+import LoadingButton from '@/components/LoadingButton';
 
 
 
 
-interface PostFormStep2Props {
+interface PostFormStep1Props {
   handleNext: () => void;
 }
 
-export default function PostFormStep2({handleNext }: PostFormStep2Props) {
+export default function PostFormStep1({handleNext }: PostFormStep1Props) {
 
   const [error, setError] = useState< string | undefined >();
   const [success, setSuccess] = useState< string | undefined >();
@@ -44,7 +46,6 @@ export default function PostFormStep2({handleNext }: PostFormStep2Props) {
       experienceLevel: '',
       jobType: '',
       jobPostPeriod: '',
-      // uploadCv: undefined,
     }
 });
 
@@ -54,13 +55,15 @@ const onSubmit = (values: z.infer<typeof PostJobSchema>) => {
   // startTransition(() => {
   //     signUpSet2(values)
   // })
-  console.log(values)
+  // console.log(values)
+  alert(JSON.stringify(values, null,2))
 }
 
 const {
    handleSubmit,
    watch,
    trigger,
+   formState: { isSubmitting},
    control
 } = form;
 
@@ -107,7 +110,7 @@ return (
                               <option value="Select years of experience" hidden>
                                   Select years of experience
                               </option>
-                              {yearsOfExperience.map((jobQua, idx) => (
+                              {typeOfEmployment.filters.map((jobQua, idx) => (
                                 <option key={idx} value={jobQua}>{jobQua}</option>
                               ))}
                             </CustomSelect>
@@ -146,7 +149,7 @@ return (
                         name='workspaceType'
                         render={({ field }) => (
                             <FormItem className='w-full'>
-                                <FormLabel htmlFor='workspaceType' className=' font-medium text-base'>Workspace Type</FormLabel>
+                                <FormLabel htmlFor='workspaceType' className=' font-medium text-base'>Job location Type</FormLabel>
                                 <FormControl className='w-full'>
                                 <CustomSelect 
                                     className="border py-2 w-full px-4  text-[#1A1A1A]/50 outline-none rounded-[8px] border-[#D0D5DD]"
@@ -215,14 +218,14 @@ return (
                 
               </div>
               <div className='flex flex-col items-center w-[40%] justify-center gap-3 md:flex-row md:justify-center'>
-                <FormField 
+                {/* <FormField 
                       control={form.control}
                       name='qualifications'
                       render={({
                         field: { onChange, onBlur, value, name, ref },                      }
                         ) => (
                           <FormItem className='w-full'>
-                              <FormLabel htmlFor='desiredJobFunction' className=' font-medium text-base'>Desired job function</FormLabel>
+                              <FormLabel htmlFor='desiredJobFunction' className=' font-medium text-base'>Qualification</FormLabel>
                               <FormControl className='w-full'>
                               <Select
                                   options={desiredJobFunction}
@@ -236,7 +239,7 @@ return (
                               <FormMessage className='font-medium text-base' />
                           </FormItem>
                       )}
-                    />
+                    /> */}
                 {/* <FormField 
                     control={form.control}
                     name='availability'
@@ -291,12 +294,13 @@ return (
               </div>
             </div>
             <div className='flex flex-col items-center w-full pb-5 justify-center gap-3 md:pr-10 md:flex-row md:justify-end'>
-              <button
+              <LoadingButton
                 type='submit'
+                loading={isSubmitting}
                 className=' text-xl leading-[24px] bg-mainColor px-16 rounded-md text-white py-3'
               >
                   Next
-              </button>
+              </LoadingButton>
             </div>
           </form>
       </Form>

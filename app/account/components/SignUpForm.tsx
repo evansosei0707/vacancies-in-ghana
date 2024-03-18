@@ -22,7 +22,7 @@ const SignUpForm = () => {
         <div className='flex flex-col justify-start items-center gap-4'>
           <Link href="/" className=' w-[312px] h-[35px]'>
             <Image
-              src={vigLogo}
+              src={vigLogo} 
               alt='vigLogo'
               width={312}
               height={35}
