@@ -350,24 +350,6 @@ export const serviceLinks: { title: string; href: string; description: string }[
     },
    ]
 
-   export const professionsImage =  [
-    {
-      labelImage: doctorImage,
-    },
-    {
-      labelImage: engineersImage,
-    },
-    {
-      labelImage: hairDressersImage,
-    },
-    {
-      labelImage: tailorImage,
-    },
-    {
-      labelImage: officeWorkerImage,
-    },
-   ]
-
    export const faqsData = [
     {
       id: 0,

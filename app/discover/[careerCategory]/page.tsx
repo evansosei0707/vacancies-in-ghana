@@ -8,6 +8,9 @@ import { client } from '@/lib/client';
 import { BlogCategories } from '@/app/lib/query';
 import { allBlogPosts } from '@/app/lib/query';
 import { BlogCategoriesType, Post } from '@/type';
+import CategoryHero from './components/CategoryHero';
+import BlogList from './components/BlogList';
+import ArticlesType from '@/app/faqs/components/ArticlesType';
 
 
 async function getAllBlogData() {
@@ -72,14 +75,11 @@ export default async function careerCategory({params: { careerCategory }}: Param
  
   return (
     <main className="flex min-h-screen mx-auto justify-start flex-col h-full  items-center w-full">
-        <FeaturedBlogs featuredBlogData={featuredBlogData}  />
-        <TopReads blogTypeContent='Top reads'  filteredBlogData={filteredBlogData} />
+        <CategoryHero />
+        <BlogList allBlogData={allBlogData} />
         <NewsLetter />
-        {
-          filteredCategoryBlog.map((item, idx) => (
-            <OtherCategory key={idx} filteredBlogData={filteredBlogData} categorySlug={item.slug}  blogTypeContent={item.title} />
-          ))
-        }
+        <ArticlesType  blogTypeContent='For Employees'  filteredBlogData={allBlogData} categorySlug='job-hunt-guidance'/>
+        <ArticlesType  blogTypeContent='For General Audience'  filteredBlogData={allBlogData} categorySlug='corporate-news'/>
     </main>
   )
 }  
@@ -92,6 +92,6 @@ export async function generateStaticParams() {
       careerCategory: blogCat.slug ,
     },
   }))
-
+  
 }
 

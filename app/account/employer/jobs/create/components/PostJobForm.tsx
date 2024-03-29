@@ -11,7 +11,7 @@ import employerProfilePic from "@/public/Rectangle 122.png";
 
 
 const PostJobForm = () => {
-   const [currentStep, setCurrentStep] = useState(2);
+   const [currentStep, setCurrentStep] = useState(1);
 
     const handleNext = () => {
       setCurrentStep(currentStep + 1);

@@ -42,6 +42,31 @@ import { z, ZodError } from 'zod';
 //     message: 'Image is required'
 // })
 
+export const TopMatchFormSchema = z.object({
+    firstName: z.string().min(1, {
+        message: "First Name is required!"
+    }),
+    lastName: z.string().min(1, {
+        message: "Last Name is required!"
+    }),
+    email: z.string().email({
+        message: "Email is required!"
+    }),
+    countryCode:  z.string(),
+    name: z.string().min(1, {
+        message: "First Name is required!"
+    }),
+    mobileNumber: z.string().min(9, {
+        message: "Mobile number is required!"
+    }).regex(/^\d+$/, "Must be a number").max(10, "Number can't be longer than 10 digits"),
+    companyName: z.string().min(1,{
+        message: "Your company is required!"
+    }),
+    status: z.string().min(1, {
+        message: "Status is required"
+    }),
+})
+
 
 export const RegisterStep1Schema = z.object({
     email: z.string().email({

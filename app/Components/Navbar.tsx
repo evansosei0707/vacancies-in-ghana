@@ -46,7 +46,7 @@ console.log(pathName)
         <NavigationMenu  className='  '>
       <NavigationMenuList >
       <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg leading-5 text-[#4A4A48]'>Job Seekers</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg leading-5 text-[#1A1A1A]'>Job Seekers</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
               {jobSeekersList.map((item, idx) => (
@@ -61,7 +61,7 @@ console.log(pathName)
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg text-[#4A4A48]'>Employers</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg text-[#1A1A1A]'>Employers</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className=" grid w-[250px] gap-2 p-4 md:w-[350px] md:grid-cols-2 lg:w-[450px] ">
               {employersList.map((item, idx) => (
@@ -76,7 +76,7 @@ console.log(pathName)
           </NavigationMenuContent>
          </NavigationMenuItem>
          <NavigationMenuItem className='hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <p className='text-lg'>Career</p></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <p className='text-lg text-[#1A1A1A]'>Career</p></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-2">
@@ -105,7 +105,7 @@ console.log(pathName)
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
-          <NavigationMenuTrigger> <span className='text-lg  text-[#4A4A48]'>Services</span></NavigationMenuTrigger>
+          <NavigationMenuTrigger> <span className='text-lg  text-[#1A1A1A]'>Services</span></NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {serviceList.map((component: serviceListType, idx: any) => (
@@ -123,7 +123,7 @@ console.log(pathName)
         <NavigationMenuItem className='text-lg hover:bg-[#008080]/30 rounded-lg'>
           <Link href="/about" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              <span className='text-lg  text-[#4A4A48]'>
+              <span className='text-lg  text-[#1A1A1A]'>
                 About
               </span>
             </NavigationMenuLink>

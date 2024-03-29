@@ -275,5 +275,33 @@ type jobListType = {
     fags: fagsType,
     uploadCV: uploadCVType,
   }
+
+  type faqsHeroSection = {
+    bigText: string,
+    mediumText: string,
+    image : any,
+  }
+
+  type gettingStartedFaqsType = {
+    _key: string
+    question: string,
+    answer: string,
+  }
+
+  type postingJobsFaqsType = {
+    _key: string
+    question: string,
+    answer: string,
+  }
+
+  type realFaqsType = {
+    gettingStartedFaqs: gettingStartedFaqsType[],
+    postingJobsFaqs:postingJobsFaqsType[],
+  }
+
+  type fagsDataType = {
+    heroSection: faqsHeroSection
+    fags: realFaqsType
+  }
   
  

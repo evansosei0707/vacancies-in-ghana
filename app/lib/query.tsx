@@ -231,3 +231,27 @@ export const cvReviewQuery = `*[_type == 'cvReview'][0] {
     }
   }
 }`
+
+export const fagsDataQuery = `*[_type == 'faqs'][0] {
+  heroSection {
+    image {
+      asset -> {
+        url
+      },
+    },
+    mediumText,
+    bigText,
+  },
+  fags {
+      gettingStartedFaqs[] {
+        _key,
+        question,
+        answer,
+      },
+      postingJobsFaqs[] {
+        _key,
+        question,
+        answer,
+      }
+  }
+}`

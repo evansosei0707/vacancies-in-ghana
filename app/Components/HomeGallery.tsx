@@ -20,7 +20,7 @@ export default function HomeGallery({ homeContent }: HomeGalleryProps) {
                 <p className=" md:w-[80%] w-full lg:text-[24px] text-lg md:text-xl leading-[28px]">{homeContent.jobsGallery.smallText}</p>
             </div> 
         </div>
-        <GallerySlider />
+        <GallerySlider jobsGallery={homeContent.jobsGallery}  />
     </section>
   )
 }
