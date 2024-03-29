@@ -16,6 +16,8 @@ async function getData() {
 export default async function page() {
 
     const faqsData: fagsDataType  = await getData();
+
+    console.log(faqsData);
     
   return (
     <main className=' w-full mx-auto flex-col flex items-center justify-center h-full'>

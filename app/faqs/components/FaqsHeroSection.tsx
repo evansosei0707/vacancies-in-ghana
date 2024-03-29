@@ -21,7 +21,7 @@ export default function FaqsHeroSection({ heroSectionData }:FaqsHeroSectionProps
                 <input 
                     type="text"
                     className=" border-none flex flex-1 placeholder:text-base placeholder:leading-[15px]  placeholder:text-[#1A1A1A80]/50   outline-none p-2 "
-                    placeholder="Search articles, guides or FAQ’s here"
+                    placeholder="Search articles, guides or FAQ&apos;s here"
                  />
                  <button className=" bg-mainColor text-white text-lg hover:bg-customBlack py-3 px-8 rounded-lg leading-[24px]">Search</button> 
             </div>
