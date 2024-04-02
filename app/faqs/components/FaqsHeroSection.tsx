@@ -8,6 +8,7 @@ interface FaqsHeroSectionProps {
 }
 
 export default function FaqsHeroSection({ heroSectionData }:FaqsHeroSectionProps) {
+
   return (
     <section className="bg-[#F5FBFF] w-full flex flex-col lg:flex-row justify-start items-start lg:justify-between lg:items-center gap-9 p-4 md:p-10 lg:pt-14 pb-4 ">
         <div className="flex flex-col items-start  justify-start lg:justify-center gap-4 pt-2 md:pt-8 lg:pt-2  w-full lg:w-1/2">

@@ -13,7 +13,6 @@ async function getData() {
 }
 
 export default async function FaqsPage() {
-
     const faqsData: fagsDataType  = await getData();
 
     console.log(faqsData);
