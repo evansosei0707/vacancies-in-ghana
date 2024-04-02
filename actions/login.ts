@@ -32,32 +32,17 @@ export const signUpSet1 = async (values: z.infer<typeof RegisterStep1Schema>) =>
 
     const { email, password, firstName, lastName, countryCode, mobileNumber, dateOfBirth, gender, location  }  = validateFields.data
 
-    const hashPassword = await bcrypt.hash(password, 10)
-
-
     const existingUser = await db.user.findUnique({
         where: {
             email,
         },
     })
 
+    
     if (existingUser) {
         return { error: "Email already in use!"}
     }
 
-    await db.user.create({
-        data: {
-            firstName,
-            email,
-            password: hashPassword,
-            lastName,
-            countryCode,
-            mobileNumber,
-            dateOfBirth,
-            gender,
-            location,
-        }
-    })
 
     return { success: "User created!"};
 }
