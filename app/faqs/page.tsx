@@ -1,4 +1,3 @@
-import React from 'react'
 import FaqsHeroSection from './components/FaqsHeroSection'
 import Faqs from './components/Faqs'
 import { client } from '@/lib/client'
@@ -19,7 +18,7 @@ export default async function FaqsPage() {
     
   return (
     <main className=' w-full mx-auto flex-col flex items-center justify-center h-full'>
-       <FaqsHeroSection heroSectionData={faqsData.heroSection} />
+       <FaqsHeroSection faqsData={faqsData} />
        <Faqs faqs={faqsData.fags} />
        <BlogsRedirect />
     </main>
