@@ -233,14 +233,12 @@ export const cvReviewQuery = `*[_type == 'cvReview'][0] {
 }`
 
 export const fagsDataQuery = `*[_type == 'faqs'][0] {
-  heroSection {
-    image {
-      asset -> {
-        url
-      },
-    },
-    mediumText,
-    bigText,
+  bigText,
+  mediumText,
+  heroImage {
+    asset -> {
+      url
+    }
   },
   fags {
       gettingStartedFaqs[] {

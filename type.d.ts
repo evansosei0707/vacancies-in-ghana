@@ -276,12 +276,6 @@ type jobListType = {
     uploadCV: uploadCVType,
   }
 
-  type faqsHeroSection = {
-    bigText: string,
-    mediumText: string,
-    image : any,
-  }
-
   type gettingStartedFaqsType = {
     _key: string
     question: string,
@@ -300,7 +294,9 @@ type jobListType = {
   }
 
   type fagsDataType = {
-    heroSection: faqsHeroSection
+    bigText: string,
+    mediumText: string,
+    heroImage: any,
     fags: realFaqsType
   }
   
