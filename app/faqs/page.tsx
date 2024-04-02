@@ -1,7 +1,6 @@
 import React from 'react'
 import FaqsHeroSection from './components/FaqsHeroSection'
 import Faqs from './components/Faqs'
-import TopReads from '../discover/[careerCategory]/components/TopReads'
 import { client } from '@/lib/client'
 import { fagsDataQuery } from '../lib/query'
 import { fagsDataType } from '@/type'
@@ -13,7 +12,7 @@ async function getData() {
     return data;
 }
 
-export default async function page() {
+export default async function FaqsPage() {
 
     const faqsData: fagsDataType  = await getData();
 
